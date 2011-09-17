@@ -350,7 +350,7 @@ Effect.Opacity = Class.create(Effect.Base, {
   initialize: function(element) {
     this.element = $(element);
     if (!this.element) throw(Effect._elementDoesNotExistError);
-    // make this work on IE on elements without 'layout'
+    // make this work on IE on elements without 'layouts'
     if (Prototype.Browser.IE && (!this.element.currentStyle.hasLayout))
       this.element.setStyle({zoom: 1});
     var options = Object.extend({
@@ -480,7 +480,7 @@ Effect.Highlight = Class.create(Effect.Base, {
     this.start(options);
   },
   setup: function() {
-    // Prevent executing on elements not in the layout flow
+    // Prevent executing on elements not in the layouts flow
     if (this.element.getStyle('display')=='none') { this.cancel(); return; }
     // Disable background image during the effect
     this.oldStyle = { };
