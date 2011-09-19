@@ -4,11 +4,19 @@
 	<title><%= title %></title>
 	<%= csrf_meta_tag %>
     <%= render 'layouts/stylesheets' %>
+    <%= javascript_include_tag :defaults %>
 </head>
 <body>
 	<div class="container">
       <%= render 'layouts/header' %>
+      <%= render 'devise/menu/login_items' %>
       <section class="round">
+        <% if notice %>
+            <p class="notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+            <p class="alert"><%= alert %></p>
+        <% end %>
         <%= yield %>
       </section>
       <%= render 'layouts/footer' %>
